@@ -9,7 +9,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.mendonca.checkcar.entities.cliente.ClienteFisica;
 import com.mendonca.checkcar.repositories.cliente.ClienteFisicaRepository;
-import com.mendonca.checkcar.repositories.cliente.ClienteFisicaRepositoryImpl;
 
 import javassist.tools.rmi.ObjectNotFoundException;
 
@@ -18,9 +17,6 @@ public class ClienteFisicaService {
 
 	@Autowired
 	private ClienteFisicaRepository pessoaFisicaRepository;
-	
-	@Autowired
-	private ClienteFisicaRepositoryImpl pessoaFisicaRepositoryImpl;
 		
 	public List<ClienteFisica> findAll() {
 		return pessoaFisicaRepository.findAll();
@@ -60,19 +56,12 @@ public class ClienteFisicaService {
 				"Objeto não encontrado! Id: " + id + ", Tipo: " + ClienteFisica.class.getName()));
 	}
 
-	/*
-	public List<ClienteFisica> findbyCPF(String cpf) throws ObjectNotFoundException {
-		List<ClienteFisica> obj = pessoaFisicaRepository.findByCPF(cpf);
-		return obj;
-
-	}
-	*/
 	public List<ClienteFisica> findByName(String nome){
-		return pessoaFisicaRepositoryImpl.findByName(nome);
+		return pessoaFisicaRepository.findByName(nome);
 	}
 
-	public List<ClienteFisica> findByCpf(String cpf){
-		return pessoaFisicaRepositoryImpl.findByCpf(cpf);
+	public ClienteFisica findByCpf(String cpf){
+		return pessoaFisicaRepository.findByCpf(cpf);
 	}
 
 }

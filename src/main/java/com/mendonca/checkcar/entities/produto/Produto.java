@@ -25,6 +25,7 @@ public class Produto implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "id_fabricante_fk")
 	private Fabricante fabricante;
+	private Boolean ativo;
 	
 	
 	public Produto() {
@@ -32,14 +33,22 @@ public class Produto implements Serializable {
 	}
 
 
-	public Produto(Long id, String descricao, String codigoEAN, Double valor) {
+	public Produto(Long id, String descricao, String codigoEAN, Double valor,Boolean ativo) {
 		super();
 		this.id = id;
 		this.descricao = descricao;
 		this.codigoEAN = codigoEAN;
 		this.valor = valor;
+		this.ativo = ativo;
 	}
 
+	public Boolean getAtivo() {
+		return ativo;
+	}
+
+	public void setAtivo(Boolean ativo) {
+		this.ativo = ativo;
+	}
 
 	public Long getId() {
 		return id;

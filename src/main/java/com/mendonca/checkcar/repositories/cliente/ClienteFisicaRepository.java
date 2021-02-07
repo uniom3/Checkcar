@@ -13,8 +13,12 @@ import com.mendonca.checkcar.entities.cliente.ClienteFisica;
 @Repository
 public interface ClienteFisicaRepository extends JpaRepository<ClienteFisica, Long> {
 
-	@Transactional(readOnly=true)
+	@Transactional(readOnly = true)
 	@Query("SELECT obj FROM Cliente obj WHERE obj.nome LIKE :nome ORDER BY obj.nome")
 	public List<ClienteFisica> findByName(@Param("nome") String nome);
+
+	@Transactional(readOnly = true)
+	@Query("SELECT obj FROM ClienteFisica obj WHERE obj.cpf = :cpf")
+	public ClienteFisica findByCpf(@Param("cpf") String cpf);
 
 }

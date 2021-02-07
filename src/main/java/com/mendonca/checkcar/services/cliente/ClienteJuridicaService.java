@@ -9,7 +9,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.mendonca.checkcar.entities.cliente.ClienteJuridica;
 import com.mendonca.checkcar.repositories.cliente.ClienteJuridicaRepository;
-import com.mendonca.checkcar.repositories.cliente.ClienteJuridicaRepositoryImpl;
 
 import javassist.tools.rmi.ObjectNotFoundException;
 
@@ -19,9 +18,6 @@ public class ClienteJuridicaService {
 	
 	@Autowired
 	private ClienteJuridicaRepository pessoaJuridicaRepository;
-
-	@Autowired
-	private ClienteJuridicaRepositoryImpl pessoaJuridicaRepositoryImpl;
 	
 	public List<ClienteJuridica> findAll() {
 		return pessoaJuridicaRepository.findAll();
@@ -58,15 +54,15 @@ public class ClienteJuridicaService {
 	}
 	
 	public List<ClienteJuridica> findByNome(String nome){
-		return pessoaJuridicaRepositoryImpl.findByName(nome);
+		return pessoaJuridicaRepository.findByName(nome);
 	}
 	
 	public List<ClienteJuridica> findByRazao(String razao){
-		return pessoaJuridicaRepositoryImpl.findByRazao(razao);
+		return pessoaJuridicaRepository.findByRazao(razao);
 	}
 	
-	public List<ClienteJuridica> findByCnpj(String cnpj){
-		return pessoaJuridicaRepositoryImpl.findByCNPJ(cnpj);
+	public ClienteJuridica findByCnpj(String cnpj){
+		return pessoaJuridicaRepository.findByCnpj(cnpj);
 	}
 	
 	

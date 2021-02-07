@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+</head>
+<body>
+	<header th:fragment="cabecalho">
+	<nav class="nav-menu d-none d-lg-block  navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <ul>
+          <li class="active"><a href="index.html">Checkcar</a></li>
+          <li class="drop-down"><a class="text-light bg-dark">Administrador</a>
+            <ul>
+              <li class="drop-down"><a class="text-light bg-dark" >Cliente</a>
+                <ul >
+                  	<a class="dropdown-item" th:href="@{/pessoaFisicas/cadastrar}">Cadastro de Cliente Física</a>									
+					<a class="dropdown-item" th:href="@{/pessoaJuridicas/cadastrar}">Cadastro de Cliente Jurídica</a>
+					<div class="dropdown-divider"></div>
+					<a class="dropdown-item" th:href="@{/pessoaFisicas/listar}">Listar Cliente Física</a>
+					<a class="dropdown-item" th:href="@{/pessoaJuridicas/listar}">Listar Cliente Jurídica</a>
+                </ul>  
+                </li>
+
+
+             <!--  <li class="drop-down"><a class="text-light bg-dark" href="#">Colaborador</a>
+                <ul >
+                  	<a class="dropdown-item" th:href="@{/departamentos/cadastrar}">Cadastro de Departamento</a>
+					<a class="dropdown-item" th:href="@{/cargos/cadastrar}">Cadastro de Cargos</a>
+					<a class="dropdown-item" th:href="@{/colaboradores/cadastrar}">Cadastro de Colaboradores</a>
+                </ul>
+                </li>   -->
+            </ul>
+          </li>
+          <li class="drop-down"><a class="text-light bg-dark">Produtos</a>
+            <ul>
+              <li class="drop-down"><a class="text-light bg-dark" >Produto</a>
+                <ul >
+                  	<a class="dropdown-item" th:href="@{/produtos/cadastrar}">Cadastro de produtos</a>
+					<div class="dropdown-divider"></div>
+					<a class="dropdown-item" th:href="@{/produtos/listar}">Listar Produtos</a>
+                </ul>  
+                </li>          
+            </ul>
+          </li>
+          <li><a href="services.html">Serviços</a></li>
+        </ul>
+      </nav>
+	</header>
+</body>
+</html>

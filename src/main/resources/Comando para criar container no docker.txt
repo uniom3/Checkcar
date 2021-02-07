@@ -1,0 +1,9 @@
+docker run -it --name checkcar -e MYSQL_ROOT_PASSWORD=123456 -p 3307:3306 -d mysql
+
+docker run -it --network some-network --rm mongo mongo --host some-mongo test
+
+docker-compose -f stack.yml up
+
+docker run --name mongo1 -p 27017:27017 -d mongo
+
+docker run --name oracle_18 -p 1522:1521 -p 5500:5500 -v D:\Banco\Oracle\oradata:/opt/oracle/oradata oracle/database:18.4.0-xe
